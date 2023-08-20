@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/spacer.dart';
 import '../../util/constant_utils.dart';
 import '../../widgets/segment.dart';
-import 'card_hours.dart';
+import '../../widgets/time_range_selector.dart';
 import 'custom_dropdown.dart';
 
 class FilterOptions extends StatelessWidget {
@@ -12,7 +12,6 @@ class FilterOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    bool showBiggerScreenDesign = ConstantUtils.isWeb(screenWidth);
 
     return Container(
       decoration: BoxDecoration(

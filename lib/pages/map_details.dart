@@ -29,12 +29,12 @@ class MapDetails extends StatelessWidget {
                         ),
 
                         Expanded(child: Container()),
-                        Text('Open hours',style: kLargeHeavy,),
-                        Text('Mon to Fri 9am - 6pm' , style: kLargeRegular,),
+                        const Text('Open hours',style: kLargeHeavy,),
+                        const Text('Mon to Fri 9am - 6pm' , style: kLargeRegular,),
 
 
                         RichText(
-                          text: TextSpan(
+                          text: const TextSpan(
                             children: [
                               TextSpan(
                                 text: 'After hours bookings ',

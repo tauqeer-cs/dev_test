@@ -85,7 +85,6 @@ class ListRowItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
 
                   Row(
@@ -119,7 +118,6 @@ class ListRowItem extends StatelessWidget {
                       ],
                     ),
                   ] else ... [
-
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -140,12 +138,9 @@ class ListRowItem extends StatelessWidget {
                         ),
                       ],
                     ),
-
                   ],
 
-
                   kVerticalSpacerMini,
-
                   Row(
                      children: [
                       Icon(
@@ -159,6 +154,7 @@ class ListRowItem extends StatelessWidget {
                       ),
                     ],
                   ),
+                  kVerticalSpacerMini,
                   Row(
                     children: [
                       Text(

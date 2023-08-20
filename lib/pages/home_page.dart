@@ -8,6 +8,7 @@ import '../util/constant_utils.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/app_bar_web.dart';
 import '../widgets/segment.dart';
+import '../widgets/time_range_selector.dart';
 import 'inner_views/custom_dropdown.dart';
 import 'inner_views/list_item.dart';
 import 'inner_views/view_top.dart';
@@ -128,6 +129,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  String incrementAndConvert(int number) {
+    int incrementedNumber = number + 1;
+    if (incrementedNumber < 10) {
+      return '0$incrementedNumber';
+    } else {
+      return incrementedNumber.toString();
+    }
+  }
+
+
+
+
   ListView buildListView() {
     return ListView.separated(
       separatorBuilder: (context, index) => const SizedBox(
@@ -136,7 +149,7 @@ class HomePage extends StatelessWidget {
       itemCount: ConstantUtils.numberOfItemsToShowInList,
       itemBuilder: (context, index) => ListRowItem(
         imageName: 'officeImage${index % 3 + 1}',
-        roomText: 'Room 0${index + 1}',
+        roomText: 'Room ${incrementAndConvert(index)}',
         timingsText: 'All day (9:00am - 6:00pm)',
         locationText: 'Pyrmont , Sydney',
         rateString: '12',
@@ -170,7 +183,7 @@ class HomePage extends StatelessWidget {
                   child: DateSelectorWidget(),
                 ),
                 kHorizontalSpacerSmall,
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: TimeRangeSelectorWidget(),
                 ),
