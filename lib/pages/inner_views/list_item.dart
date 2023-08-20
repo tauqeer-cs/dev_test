@@ -40,19 +40,47 @@ class ListRowItem extends StatelessWidget {
       ),
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(vertical: 16 , horizontal:  8.0),
         child: Row(
           children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width * (showBiggerScreenDesign ? 0.11 : 0.33),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                // Adjust the radius as needed
-                child: Image.asset(
-                  'assets/images/design/$imageName.jpeg',
-                ), // Replace 'your_image.png' with your asset path
+            if(isAvailable == true) ... [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * (showBiggerScreenDesign ? 0.11 : 0.33),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  // Adjust the radius as needed
+                  child: Image.asset(
+                    'assets/images/design/$imageName.jpeg',
+                  ), // Replace 'your_image.png' with your asset path
+                ),
               ),
-            ),
+
+            ] else ... [
+
+              SizedBox(
+                width: MediaQuery.of(context).size.width * (showBiggerScreenDesign ? 0.11 : 0.33),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        'assets/images/design/$imageName.jpeg',
+                      ),
+                    ),
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.5), // Adjust opacity as needed
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+                ,
+              ),
+            ],
+
             kHorizontalSpacerSmall,
             Expanded(
               child: Column(
@@ -73,22 +101,49 @@ class ListRowItem extends StatelessWidget {
                   ),
                   kVerticalSpacerMini,
 
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time,
-                        color: Styles.kBackGroundGrayColorDark2,
-                      ),
-                      const SizedBox(
-                        width: 2,
-                      ),
-                      Text(
-                        timingsText,
-                        style: kMediumMedium.copyWith(
-                            color: Styles.kBackGroundGrayColorDark2),
-                      ),
-                    ],
-                  ),
+                  if(isAvailable == true) ... [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.access_time,
+                          color: Styles.kBackGroundGrayColorDark2,
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        Text(
+                          timingsText,
+                          style: kMediumMedium.copyWith(
+                              color: Styles.kBackGroundGrayColorDark2),
+                        ),
+                      ],
+                    ),
+                  ] else ... [
+
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.access_time,
+                          color: Styles.kBlueColor,
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Next available from 10:00am',
+                            style: kMediumMedium.copyWith(
+                                color: Styles.kBlueColor),
+                            
+                          ),
+                        ),
+                      ],
+                    ),
+
+                  ],
+
+
                   kVerticalSpacerMini,
 
                   Row(
@@ -108,7 +163,7 @@ class ListRowItem extends StatelessWidget {
                     children: [
                       Text(
                         "\$$rateString ",
-                        style: kMediumHeavy.copyWith(color: Styles.kBlueColor),
+                        style: kMediumHeavy.copyWith(color: isAvailable == true ? Styles.kBlueColor : Styles.kBackGroundGrayColorDark2),
                       ),
                       Text(
                         'per hr',
