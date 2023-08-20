@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../theme/styles.dart';
+
 class VerticalDividerWidget extends StatelessWidget {
   const VerticalDividerWidget({super.key});
 
@@ -9,7 +11,7 @@ class VerticalDividerWidget extends StatelessWidget {
     return Container(
       height: 20, // Adjust the height as needed
       width: 1, // Width of the vertical divider
-      color: Colors.grey, // Color of the divider
+      color: Styles.kBackGroundGrayColorDark, // Color of the divider
     );
   }
 }

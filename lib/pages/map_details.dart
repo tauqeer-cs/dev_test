@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../theme/spacer.dart';
 import '../theme/styles.dart';
 import '../theme/typography.dart';
-import '../widgets/segment.dart';
-import 'inner_views/custom_dropdown.dart';
 import 'inner_views/info_detail.dart';
-import 'inner_views/list_item.dart';
 
 class MapDetails extends StatelessWidget {
   const MapDetails({Key? key}) : super(key: key);

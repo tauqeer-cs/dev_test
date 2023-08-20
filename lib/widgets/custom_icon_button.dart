@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/styles.dart';
+
 class CustomIconButton extends StatelessWidget {
   final IconData? iconData;
   final String text;
@@ -20,7 +22,7 @@ class CustomIconButton extends StatelessWidget {
         backgroundColor: Colors.white, // Text and icon color
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0), // Rounded corners
-          side: const BorderSide(color: Colors.grey), // Grey border
+          side:  BorderSide(color:Styles.kBackGroundGrayColorDark ), // Grey border
         ),
       ),
       child: Row(

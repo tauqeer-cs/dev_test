@@ -183,7 +183,7 @@ class _DateSelectorWidgetState extends State<DateSelectorWidget> {
       onTap: () => _selectDate(context),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Styles.kBackGroundGrayColorDark),
           borderRadius: BorderRadius.circular(8.0),
         ),
         padding: EdgeInsets.all(8.0),
@@ -255,7 +255,7 @@ class _TimeRangeSelectorWidgetState extends State<TimeRangeSelectorWidget> {
 
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
+        border: Border.all(color: Styles.kBackGroundGrayColorDark),
         borderRadius: BorderRadius.circular(8.0),
       ),
       padding: EdgeInsets.all(8.0),

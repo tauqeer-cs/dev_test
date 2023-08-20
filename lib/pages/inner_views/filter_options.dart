@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/spacer.dart';
+import '../../util/constant_utils.dart';
 import '../../widgets/segment.dart';
+import 'card_hours.dart';
 import 'custom_dropdown.dart';
-
 
 class FilterOptions extends StatelessWidget {
   const FilterOptions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return                             Container(
+    final screenWidth = MediaQuery.of(context).size.width;
+    bool showBiggerScreenDesign = ConstantUtils.isWeb(screenWidth);
+
+    return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(
-            16), // Adjust the radius as needed
+        borderRadius: BorderRadius.circular(16), // Adjust the radius as needed
       ),
       width: double.infinity,
       child: Padding(

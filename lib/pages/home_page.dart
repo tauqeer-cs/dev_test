@@ -7,7 +7,6 @@ import '../theme/typography.dart';
 import '../util/constant_utils.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/app_bar_web.dart';
-import '../widgets/filter_options.dart';
 import '../widgets/segment.dart';
 import 'inner_views/custom_dropdown.dart';
 import 'inner_views/list_item.dart';

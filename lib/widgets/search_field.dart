@@ -1,8 +1,9 @@
 import 'package:dev_text/theme/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSearchWidget extends StatelessWidget {
+  const CustomSearchWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
