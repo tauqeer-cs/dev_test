@@ -1,4 +1,3 @@
-import 'package:dev_text/theme/styles.dart';
 import 'package:flutter/material.dart';
 
 const double modifier = 0;

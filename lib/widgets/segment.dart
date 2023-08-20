@@ -38,12 +38,12 @@ class _SegmentedViewState extends State<SegmentedView> {
             'allDay': 'Primary',
             'halfDay': 'Half day',
           },
-          activeStyle: TextStyle(
+          activeStyle: const TextStyle(
             // TextStyle
             color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
-          inactiveStyle: TextStyle(
+          inactiveStyle: const TextStyle(
             // TextStyle
             color: Colors.black38,
           ),

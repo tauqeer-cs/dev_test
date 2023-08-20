@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../theme/styles.dart';
 import '../theme/typography.dart';
 
-
 class CustomSegmentControl extends StatefulWidget {
   final Color? primaryColor;
   final VoidCallback optionOneTapped;

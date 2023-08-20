@@ -7,9 +7,14 @@ import 'theme.dart';
 class Styles {
   static Color get kPrimaryColor => const Color.fromRGBO(227, 30, 51, 1);
 
-  static Color get kBackGroundGrayColor => const Color.fromRGBO(243, 243, 249, 1);
+  static Color get kBackGroundGrayColor =>
+      const Color.fromRGBO(243, 243, 249, 1);
 
-  static Color get kBackGroundGrayColorDark => const Color.fromRGBO(192, 192, 192, 1);
+  static Color get kBackGroundGrayColorDark =>
+      const Color.fromRGBO(192, 192, 192, 1);
+
+  static Color get kBackGroundGrayColorDark2 =>
+      const Color.fromRGBO(154, 154, 154, 1);
 
   static Color get kActiveColor => const Color.fromRGBO(227, 30, 51, 1);
 
@@ -39,7 +44,7 @@ class Styles {
 
   static Color get kSubTextColor => const Color.fromRGBO(102, 102, 102, 1);
 
-  static Color get kBlueColor => const Color.fromRGBO(51, 102, 204, 1);
+  static Color get kBlueColor => const Color.fromRGBO(56, 83, 226, 1);
 
   static Color get kZurichColor => const Color.fromRGBO(0, 118, 190, 1);
 
@@ -59,7 +64,6 @@ class Styles {
 
 //  static Color get kSubTextColor => const Color.fromRGBO(102, 102, 102, 1);
   static Color get klightBackgroundColor => const Color.fromRGBO(0, 0, 0, 0.05);
-
 
   static Color get greyLineColor => Color.fromRGBO(120, 120, 122, 1);
 
@@ -105,17 +109,16 @@ class Styles {
       ),
       scaffoldBackgroundColor: isLight ? Colors.white : kDarkBgColor,
       scrollbarTheme: const ScrollbarThemeData(),
-      toggleableActiveColor: kPrimaryColor,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
-                return kActiveColor.withOpacity(0.5);
+                return kBlueColor.withOpacity(0.5);
               } else if (states.contains(MaterialState.disabled)) {
-                return kActiveColor.withOpacity(0.7);
+                return kBackGroundGrayColorDark;
               }
-              return kActiveColor; // Use the component's default./ Use the component's default.
+              return kBlueColor; // Use the component's default./ Use the component's default.
             },
           ),
           foregroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -131,81 +134,16 @@ class Styles {
                       .white; // Use the component's default./ Use the component's default.
             },
           ),
-          minimumSize: MaterialStateProperty.all(Size(500.w, 45.h)),
+          minimumSize: MaterialStateProperty.all(Size(32.w, 28.h)),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50),
-                side: BorderSide(color: kPrimaryColor)),
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
-          textStyle: MaterialStateProperty.all(kLargeSemiBold),
+          textStyle: MaterialStateProperty.all(kMediumMedium),
           padding: MaterialStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           ),
-        ),
-      ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return Colors.white.withOpacity(0.5);
-              } else if (states.contains(MaterialState.disabled)) {
-                return Colors.white.withOpacity(0.7);
-              }
-              return Colors
-                  .white; // Use the component's default./ Use the component's default.
-            },
-          ),
-          side: MaterialStateProperty.resolveWith<BorderSide>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return BorderSide(
-                  color: kPrimaryColor,
-                  width: 1.0,
-                  style: BorderStyle.solid,
-                );
-              } else if (states.contains(MaterialState.disabled)) {
-                return const BorderSide(
-                  color: Colors.grey,
-                  width: 1.0,
-                  style: BorderStyle.solid,
-                );
-              }
-              return BorderSide(
-                color: kPrimaryColor,
-                width: 1.0,
-                style: BorderStyle.solid,
-              ); // Use the component's default./ Use the component's default.
-            },
-          ),
-          textStyle: MaterialStateProperty.all(kLargeSemiBold),
-          minimumSize: MaterialStateProperty.all(Size(500.w, 45.h)),
-          foregroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return isLight ? kPrimaryColor : Colors.white;
-              } else if (states.contains(MaterialState.disabled)) {
-                return kPrimaryColor.withOpacity(0.5);
-              }
-              return isLight
-                  ? kPrimaryColor
-                  : Colors
-                      .white; // Use the component's default./ Use the component's default.
-            },
-          ),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-              side: BorderSide(
-                width: 1,
-                color: kBorderColor,
-              ),
-            ),
-          ),
-          padding: MaterialStateProperty.all(
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-          ),
-          elevation: MaterialStateProperty.all(0),
         ),
       ),
       shadowColor: const Color(0xFF696868),
@@ -213,60 +151,6 @@ class Styles {
         cursorColor: kPrimaryColor,
         selectionColor: kPrimaryColor,
         selectionHandleColor: kPrimaryColor,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        isDense: false,
-        errorMaxLines: 2,
-        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-        border: const UnderlineInputBorder(),
-        prefixIconColor: isLight ? kTextColor : Colors.white,
-        suffixIconColor: isLight ? kTextColor : Colors.white,
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: kBorderColor),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: kBorderColor),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-        errorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-        focusedErrorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: kBorderColor.withOpacity(0.3),
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-        ),
-        filled: false,
-        labelStyle: kSmallSemiBold.copyWith(
-          color: isLight
-              ? kSubTextColor.withOpacity(0.5)
-              : kLightBgColor.withOpacity(0.5),
-        ),
-        errorStyle: kSmallSemiBold.copyWith(
-          color: isLight ? Colors.red : kLightBgColor,
-        ),
-        hintStyle: kSmallSemiBold.copyWith(
-          color: isLight
-              ? kSubTextColor.withOpacity(0.5)
-              : kLightBgColor.withOpacity(0.5),
-        ),
       ),
       checkboxTheme: CheckboxThemeData(
         shape: RoundedRectangleBorder(
@@ -384,6 +268,4 @@ class Styles {
       ),
     );
   }
-
 }
-

@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../theme/styles.dart';
 import '../theme/typography.dart';
 import 'app_logo.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -42,6 +42,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     return PreferredSize(
       preferredSize: Size.fromHeight(height ?? 60.h),
       child: AppBar(
+        elevation: 0.0,
         backgroundColor: Colors.white,
         toolbarHeight: overrideInnerHeight ? (height ?? 60.h) : 60.h,
         centerTitle: centerTitle,
@@ -82,8 +83,8 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.bottomLeft,
           child: flexibleWidget,
         ),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
+//        shape: const RoundedRectangleBorder(
+  //          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
         title: Row(
           children: [
             const AppLogoWidget(),
