@@ -23,21 +23,19 @@ class _FilterOptionsState extends State<FilterOptions> {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
-          child: ListView.builder(
-            itemCount: options.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                onTap: () {
-                  setState(() {
-                    selectedOption = options[index];
-                  });
-                  Navigator.pop(context);
-                },
-                title: Text(options[index]),
-              );
-            },
-          ),
+        return ListView.builder(
+          itemCount: options.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              onTap: () {
+                setState(() {
+                  selectedOption = options[index];
+                });
+                Navigator.pop(context);
+              },
+              title: Text(options[index]),
+            );
+          },
         );
       },
     );
@@ -54,17 +52,16 @@ class _FilterOptionsState extends State<FilterOptions> {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: Styles.kBackGroundGrayColorDark,
-            // Replace with your desired border color
             width: 1, // Adjust the border width as needed
           ),
         ),
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 12),
         child: SizedBox(
           //width: double.infinity,
           child: Row(
             children: [
 
-              Text('Filter By : '),
+              const Text('Filter By : '),
               const SizedBox(width: 4),
               Text(selectedOption),
               const Spacer(),

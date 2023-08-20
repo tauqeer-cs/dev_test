@@ -33,6 +33,8 @@ class HomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Container(width: double.infinity,height: 1,color: Styles.kBackGroundGrayColor,),
+                  const SizedBox(height: 2,),
                   const ViewTopWeb(),
                   kVerticalSpacerMini,
                   Expanded(
@@ -59,9 +61,19 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Expanded(
+                         Expanded(
                           flex: 4,
-                          child: MapDetails(),
+                          child: Container(
+                              color: Styles.kBackGroundGrayColor,
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(16), // Adjust the radius as needed
+                                    ),
+                                    child: const MapDetails()),
+                              )),
                         ),
                       ],
                     ),

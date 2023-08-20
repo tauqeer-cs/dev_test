@@ -1,3 +1,4 @@
+import 'package:dev_text/theme/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,35 +8,37 @@ class CustomSearchWidget extends StatelessWidget {
     return SizedBox(
       width: 200,
       child: Container(
-
-
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.0),
-          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(color: Styles.kBackGroundGrayColorDark),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           children: [
-            Expanded(
+            const Expanded(
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search room or member',
                   border: InputBorder.none,
+
+                ),
+                style: TextStyle(
+                    fontSize: 12
                 ),
               ),
             ),
+
             Container(
-              height: 24.0,
+              height: 20.0, // Adjust the height here
               width: 1.0,
-              color: Colors.grey,
-              margin: EdgeInsets.symmetric(horizontal: 8.0),
+              color: Styles.kBackGroundGrayColorDark,
+              margin: const EdgeInsets.symmetric(horizontal: 8.0),
             ),
-            Icon(Icons.search),
+            const Icon(Icons.search),
           ],
         ),
       ),
     );
   }
 }
-
 

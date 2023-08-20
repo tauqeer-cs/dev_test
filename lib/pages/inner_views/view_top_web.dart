@@ -12,44 +12,45 @@ class ViewTopWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-         Expanded(
-            flex: 6,
-            child:Container(
-              child: const Align(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+           const Expanded(
+              flex: 6,
+              child:Align(
                   alignment: Alignment.topLeft,
                   child: ButtonGroupExample()),
-            ),
-        ),
-        Expanded(
-          flex: 4,
-          child: Row(
-            children: [
-              CustomSearchWidget(),
-              kHorizontalSpacerMini,
-              Expanded(child: FilterOptions()),
-              kHorizontalSpacerMini,
-
-              SelectableIconGroup(
-                icons: [Icons.menu_outlined, Icons.grid_view_outlined],
-                onIconSelected: (index) {
-                  print('Selected icon at index: $index');
-                },
-              ),
-
-              kHorizontalSpacerMini,
-
-            ],
           ),
-        ),
-        kHorizontalSpacerMini,
+          Expanded(
+            flex: 4,
+            child: Row(
+              children: [
+                CustomSearchWidget(),
+                kHorizontalSpacerMini,
+                const Expanded(child: FilterOptions()),
+                kHorizontalSpacerMini,
+
+                SelectableIconGroup(
+                  icons: [Icons.menu_outlined, Icons.grid_view_outlined],
+                  onIconSelected: (index) {
+                    print('Selected icon at index: $index');
+                  },
+                ),
+
+                kHorizontalSpacerMini,
+
+              ],
+            ),
+          ),
+          kHorizontalSpacerMini,
 
 //      kHorizontalSpacerMini,
  //       ,
 
-      ],
+        ],
+      ),
     );
   }
 }
@@ -82,13 +83,13 @@ class _SelectableIconGroupState extends State<SelectableIconGroup> {
             widget.onIconSelected(index);
           },
           child: Container(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(4.0),
             decoration: BoxDecoration(
               color: _selectedIconIndex == index ? Styles.kBackGroundGrayColorDark : Colors.transparent,
               borderRadius: BorderRadius.circular(12.0),
             ),
             child: Icon(widget.icons[index],
-                size: 36.0, color: _selectedIconIndex == index ? Colors.blue : Colors.black38),
+                size: 24.0, color: _selectedIconIndex == index ? Colors.blue : Colors.black38),
           ),
         ),
       ),

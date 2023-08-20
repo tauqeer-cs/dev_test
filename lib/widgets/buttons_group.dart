@@ -1,3 +1,4 @@
+import 'package:dev_text/theme/styles.dart';
 import 'package:flutter/material.dart';
 
 class ButtonGroupExample extends StatefulWidget {
@@ -57,7 +58,7 @@ class SelectableButton extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onPressed;
 
-  const SelectableButton({
+  const SelectableButton({super.key,
     required this.text,
     this.icon,
     this.isSelected = false,
@@ -66,33 +67,38 @@ class SelectableButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = isSelected ? Colors.blue : Colors.grey;
-    Color iconColor = isSelected ? Colors.blue : Colors.grey;
+    Color textColor = isSelected ? Styles.kBlueColor : Styles.kBackGroundGrayColorDark;
+    Color iconColor = isSelected ? Styles.kBlueColor : Styles.kBackGroundGrayColorDark;
 
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(16.0,),
+          side: BorderSide(color: textColor),
         ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (icon != null) ... [
-            Icon(
-              icon,
-              color: iconColor,
-            ),
-            SizedBox(width: 8.0),
-          ],
 
-          Text(
-            text,
-            style: TextStyle(color: textColor),
-          ),
-        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (icon != null) ... [
+              Icon(
+                icon,
+                color: iconColor,
+              ),
+              const SizedBox(width: 8.0),
+            ],
+
+            Text(
+              text,
+              style: TextStyle(color: textColor),
+            ),
+          ],
+        ),
       ),
     );
   }

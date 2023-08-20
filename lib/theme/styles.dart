@@ -50,8 +50,6 @@ class Styles {
 
   static Color get kBorderActionColor => const Color.fromRGBO(112, 112, 112, 1);
 
-  static Color get kOrangeColor => const Color.fromRGBO(243, 110, 56, 1);
-
   static Color get kIconColor => const Color(0xFF8299B9);
 
   static Color get kDartTeal => const Color.fromRGBO(0, 48, 73, 1);
@@ -69,16 +67,6 @@ class Styles {
 
   static Color get kDisabledGrey => const Color.fromRGBO(151, 151, 151, 1);
 
-  static LinearGradient get gradient => const LinearGradient(colors: <Color>[
-        Color(0xFF02C2F3),
-        Color(0xFF10C7E9),
-        Color(0xFF2AD0D8),
-        Color(0xFF3CD6CD),
-        Color(0xFF53DFBD),
-        Color(0xFF66E7B1),
-        Color(0xFF74EAA8),
-        Color(0xFF7BEDA2),
-      ]);
 
   static ThemeData theme(bool isLight) {
     return ThemeData(
@@ -152,16 +140,6 @@ class Styles {
         selectionColor: kPrimaryColor,
         selectionHandleColor: kPrimaryColor,
       ),
-      checkboxTheme: CheckboxThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(3),
-        ),
-        materialTapTargetSize: MaterialTapTargetSize.padded,
-        side: BorderSide(
-          color: kBorderActionColor,
-          width: 1.5,
-        ),
-      ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           minimumSize: MaterialStateProperty.all(const Size(100, 50)),
@@ -205,45 +183,11 @@ class Styles {
         ),
         unselectedItemColor: kBorderColor,
       ),
-      chipTheme: ChipThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 0,
-        padding: const EdgeInsets.all(5),
-        labelPadding: const EdgeInsets.all(2),
-        backgroundColor: kDisabledButton,
-        shadowColor: kTextColor,
-        labelStyle: kMediumSemiBold.copyWith(color: Colors.white),
-      ),
-      tabBarTheme: TabBarTheme(
-        labelColor: kTextLightThemeColor,
-        unselectedLabelColor: kTextLightThemeColor,
-        labelStyle: kMediumHeavy.copyWith(
-          color: kTextLightThemeColor,
-        ),
-        unselectedLabelStyle: kMediumHeavy.copyWith(
-          color: kTextLightThemeColor,
-        ),
-      ),
       cardTheme: CardTheme(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
         color: isLight ? Colors.white : kTextColor.withOpacity(0.6),
-      ),
-      radioTheme: RadioThemeData(
-        fillColor: MaterialStateProperty.resolveWith(
-          (states) {
-            if (states.contains(MaterialState.selected)) {
-              return kPrimaryColor;
-            }
-            if (states.contains(MaterialState.selected)) {
-              return kPrimaryColor;
-            }
-            return kPrimaryColor;
-          },
-        ),
       ),
       textTheme: TextTheme(
         displayLarge: const TextStyle(
